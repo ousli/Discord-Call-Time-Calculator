@@ -6,7 +6,7 @@ def find_call_duration(file_path):
     total_min = 0
     with open(file_path, 'r', encoding="utf-8") as file:
         contents = file.read()
-        call_text = re.findall(r'started a call that lasted (\d+\.\d+) minutes', contents)
+        call_text = re.findall(r'started a call that lasted (\d+[.,]\d+) minutes', contents)
         for e in call_text:
             total_min += float(e)
         return total_min
