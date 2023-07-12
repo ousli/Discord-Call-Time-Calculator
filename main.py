@@ -36,8 +36,9 @@ def extract_data(file_path):
             content_element = container.find('span', class_='chatlog__system-notification-content')
             duration_match = re.search(r'(\d+[.,]\d+) minutes', content_element.text)
             if duration_match:
-                duration = float(duration_match.group(1))
+                duration = duration_match.group(1)
                 duration = str(duration).replace(',', '.')
+                duration = float(duration)
                 if name in users:
                     users[name]['calls'].append(float(duration))
                 else:
